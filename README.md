@@ -71,7 +71,7 @@ Alternativa para usar Python estándar.
 
 **Pasos:**
 
-1. Crear entorno virtual: (en la carpeta raiz / )
+1. Crear entorno virtual: (En la carpeta raiz del proyecto)
 ```bash
 python -m venv env_spark
 ```
