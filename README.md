@@ -1,115 +1,185 @@
-# 🏥 Proyecto CSD - Predicción de Estada Hospitalaria
+# 🏥 Análisis de Egresos Hospitalarios 2024 con Spark ML
 
-Este proyecto tiene como objetivo predecir los días de estada hospitalaria utilizando técnicas de Machine Learning con Apache Spark.
-
----
-
-## 🛠️ Requisitos Previos
-
-Para ejecutar este proyecto de forma local, necesitas tener instalado:
-
-- Anaconda o Miniconda  
-- Java JDK 17 (requerido por PySpark 4.1.1)  
-
-> ⚠️ **Nota:** El archivo `environment.yml` ya incluye la instalación de `openjdk=17`.
+Este proyecto realiza un análisis de datos masivos sobre los egresos hospitalarios en Chile durante el año 2024, utilizando **Apache Spark** para el procesamiento distribuido y modelamiento predictivo de los días de estada hospitalaria mediante técnicas de regresión.
 
 ---
 
-## 🚀 Configuración del Entorno
+## 👥 Integrantes
 
-Sigue estos pasos para replicar el entorno de desarrollo:
+- Cristóbal Salvo  
+- Fernando Núñez  
+- Fabian Mejías  
+- Cristóbal Valenzuela  
 
-### 1. Clonar el repositorio
-```bash
-git clone <url-del-repo>
-cd csd_proyecto
-```
-
-### 2. Crear el entorno con Conda
-El archivo `environment.yml` contiene todas las dependencias necesarias (`pyspark`, `pandas`, etc.).
-
-```bash
-conda env create --file environment.yml
-```
-
-### 3. Activar el entorno
-```bash
-conda activate csd_proyecto
-```
+**Asignatura:** Ciencia de Datos (NRC: 7931)
 
 ---
 
-## 📊 Datos
+## 📂 Estructura del Proyecto
 
-El análisis requiere el archivo de datos oficial.
+Para asegurar el correcto funcionamiento del proyecto, mantén la siguiente estructura:
 
-### Pasos:
-
-1. Exporta el .zip, con esto se creara la carpeta /data (deja la car)
-2. con esto se creara la carpeta /data 
-3. Deja la carpeta en el mismo nivel que el codigo .ipynb
-
-
-### 📁 Estructura esperada
 ```
 .
-├── Apache_Spark_ML_EGRESOS_2024.ipynb
-├── environment.yml
-└── data/
-    └── EGRESOS_2024.csv
+├── Apache_Spark_ML_EGRESOS_2024.ipynb   # Notebook principal
+├── environment.yml                      # Configuración de entorno Conda
+└── data/                                # Carpeta para el dataset
+    └── EGRESOS_2024.csv                 # Dataset (no incluido en el repositorio)
 ```
+
+> ⚠️ **Importante:** El archivo CSV debe utilizar punto y coma (`;`) como separador.
 
 ---
 
-## 💻 Ejecución del Proyecto
+## 🚀 Opciones de Ejecución
 
-### 🔹 Opción A: Jupyter (Local)
+El proyecto puede ejecutarse de tres formas distintas según tus preferencias:
 
-1. Iniciar Jupyter:
+---
+
+### 🔹 Opción 1: Google Colab (Sin instalación local)
+
+Ideal si quieres ejecutar el proyecto rápidamente sin configurar dependencias en tu equipo.
+
+**Pasos:**
+
+1. Subir el archivo `.ipynb` a Google Colab  
+2. Crear una carpeta `data/` en el panel lateral  
+3. Subir el archivo `EGRESOS_2024.csv` dentro de esa carpeta  
+4. Ubicar la celda:  
+   ```
+   Instalación de Apache Spark en Google Colab
+   ```
+5. Descomentar las líneas que contienen:
+   ```
+   !apt-get
+   !wget
+   !tar
+   !pip
+   ```
+6. Ejecutar la celda para configurar el entorno  
+
+---
+
+### 🔹 Opción 2: Local sin Anaconda (Pip + Venv)
+
+Alternativa para usar Python estándar.
+
+**Requisitos previos:**
+- Tener instalado **Java JDK 17**
+- Configurar la variable de entorno `JAVA_HOME'* (Revisar como al final del documento).
+
+**Pasos:**
+
+1. Crear entorno virtual: (en la carpeta raiz / )
+```bash
+python -m venv env_spark
+```
+
+2. Activar entorno:
+
+- **Windows**
+```bash
+.\env_spark\Scripts\activate
+```
+
+- **Linux / Mac**
+```bash
+source env_spark/bin/activate
+```
+
+3. Instalar dependencias:
+```bash
+Instalar dependencias: `pip install -r requirements.txt`.
+```
+
+4. Iniciar Jupyter: (O vscode con la extension de jupiter)
 ```bash
 jupyter lab
 ```
 
-2. Abrir el archivo:
-```
-Apache_Spark_ML_EGRESOS_2024.ipynb
-```
-
-3. Seleccionar el kernel:
-```
-csd_proyecto
-```
-
-4. Ejecutar las celdas en orden
-
 ---
 
-### 🔹 Opción B: Google Colab
+### 🔹 Opción 2: Local con Anaconda (Recomendado)
 
-El notebook incluye una celda inicial (comentada) para instalar dependencias en Colab.
+Recomendado para mantener un entorno controlado y reproducible.
 
-> ⚠️ Esta opción es alternativa; el entorno principal está pensado para ejecución local.
+**Pasos:**
 
----
+1. Abrir una terminal en la carpeta del proyecto  
 
-## 📝 Configuración de PySpark
+2. Crear el entorno:
+```bash
+conda env create --file environment.yml --prune
+```
 
-Para evitar conflictos de versiones de Python (especialmente en Linux), se configura automáticamente PySpark para usar el Python del entorno activo:
+3. Activar el entorno:
+```bash
+conda activate csd_proyecto
+```
 
-```python
-import os
-import sys
-
-os.environ['PYSPARK_PYTHON'] = sys.executable
-os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
+4. Iniciar Jupyter:
+```bash
+jupyter lab
 ```
 
 ---
 
-## 📚 Contexto Académico
 
-Este proyecto fue desarrollado como parte del ramo:
+## 🛠️ Tecnologías Utilizadas
 
-**Ciencia de Datos**
+- **Lenguaje:** Python 3.10  
+- **Procesamiento de Datos:** Apache Spark / PySpark 4.1.1  
+- **Machine Learning:** Spark MLlib  
+  - Regresión Lineal  
+  - Ridge (L2)  
+  - Lasso (L1)  
+  - Elastic Net  
+- **Análisis de Datos:** Pandas, NumPy  
 
 ---
+
+## 📌 Notas
+
+- El dataset **no está incluido** en el repositorio.  
+- Asegúrate de colocarlo en la carpeta `data/` antes de ejecutar el notebook.  
+- El proyecto está diseñado para ser reproducible en distintos entornos.  
+
+---
+
+## 📚 Contexto
+
+Este proyecto fue desarrollado como parte del curso **Ciencia de Datos**, enfocado en el uso de herramientas de procesamiento distribuido para análisis de datos reales del sistema de salud en Chile.
+
+---
+
+## Configurar variable HOME
+
+1. Localizar la ruta de instalación
+Primero deben saber dónde se instaló Java 17.
+
+Windows: Generalmente es C:\Program Files\Java\jdk-17
+
+Linux/macOS: Generalmente es /usr/lib/jvm/java-17-openjdk (en Linux) o /Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home (en macOS).
+
+2. Configurar la Variable
+En Windows (Interfaz Gráfica)
+
+    1. Buscar "Editar las variables de entorno del sistema" en el menú Inicio.
+
+    2. Hacer clic en el botón Variables de entorno.
+
+    3. En Variables del sistema, hacer clic en Nueva....
+
+    4. Nombre de la variable: JAVA_HOME
+
+    5. Valor de la variable: C:\Program Files\Java\jdk-17 (o la ruta donde lo instalaron).
+
+    6. Buscar la variable Path en la misma lista, seleccionarla, hacer clic en Editar... y añadir una nueva línea: %JAVA_HOME%\bin.
+
+3. Verificar la configuración
+En una nueva terminal, deben ejecutar estos dos comandos. Ambos deben responder con éxito:
+
+```bash
+echo %JAVA_HOME% 
+```
