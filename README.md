@@ -160,8 +160,6 @@ Primero deben saber dónde se instaló Java 17.
 
 Windows: Generalmente es C:\Program Files\Java\jdk-17
 
-Linux/macOS: Generalmente es /usr/lib/jvm/java-17-openjdk (en Linux) o /Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home (en macOS).
-
 2. Configurar la Variable
 En Windows (Interfaz Gráfica)
 
