@@ -176,7 +176,7 @@ dependencies:
   - notebook=7.5.5=pyhcf101f3_0
   - notebook-shim=0.2.4=pyhd8ed1ab_1
   - numpy=2.2.6=py310hefbff90_0
-  - openjdk=11.0.30=ha668962_0
+  - openjdk=17
   - openssl=3.6.2=h35e630c_0
   - orc=2.3.0=h21090e2_0
   - overrides=7.7.0=pyhd8ed1ab_1
