@@ -1,6 +1,6 @@
-# 🏥 Análisis de Egresos Hospitalarios 2024 con Spark ML
+# Modelo Predictivo de Mortalidad al Ingreso Hospitalario para Optimización de Camas Críticas
 
-Este proyecto realiza un análisis de datos masivos sobre los egresos hospitalarios en Chile durante el año 2024, utilizando **Apache Spark** para el procesamiento distribuido y modelamiento predictivo de los días de estada hospitalaria mediante técnicas de regresión.
+Este proyecto aborda la dificultad de los equipos médicos para identificar de forma temprana a pacientes que, aunque parezcan estables, presentan un alto riesgo de fallecer. El modelo procesa y analiza un gran volumen de egresos hospitalarios (DEIS 2024) para predecir la probabilidad de fallecimiento (Condición de egreso). Esto permite priorizar cuidados intensivos y optimizar la asignación de camas críticas.
 
 ---
 
