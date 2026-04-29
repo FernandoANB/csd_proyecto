@@ -10,4 +10,5 @@ dependencies:
   - numpy
   - jupyterlab
   - ipykernel
-  - matplotlib  # Por si decides agregar gráficos más adelante
+  - matplotlib 
+  - seaborn
